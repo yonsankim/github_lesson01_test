@@ -1,0 +1,262 @@
+/*==================================
+初期設定
+==================================*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/* h1 {
+  color: red;
+} */
+
+body {
+  font-family: "M PLUS 1p", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+}
+
+#container {
+  margin: 0 auto;
+}
+/*==================================
+header
+==================================*/
+header {
+  /* background-color: pink; */
+  width: 100%;
+  height: 62vh;
+  background-image: url(../images/mainvisual.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+header h1 {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 3px 12px;
+  border: double 6px #fff;
+  letter-spacing: 0.1;
+
+  /* https://www.granfairs.com/blog/staff/centering-by-css */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  /* tarnsformの後にrotateを使わないとrotateが反映されない */
+  /* transformを個々に使っても意図した場所にいかない */
+  /* transform: rotate(45deg); */
+}
+
+header h1 span {
+  /* spanタグはinline要素なので回すためにdisplay:blockを適用することが必要！ */
+  display: block;
+  transform: rotate(-45deg);
+}
+
+/*==================================
+article
+==================================*/
+article {
+  max-width: 1024px;
+  /* background-color: pink; */
+  margin: 0 auto;
+  padding: 24px;
+  color: #333;
+}
+
+.content {
+  /* background-color: aliceblue; */
+  /* 768でレスポンシブ対応させるため */
+  /* 上 左右 下 */
+  max-width: 768px;
+  margin: 0 auto 120px;
+}
+/* ギャラリーと問い合わせボタンの間 */
+.content:nth-last-of-type(2) {
+  margin-bottom: 24px;
+}
+/* 問い合わせボタンとfooterの間 */
+.content:nth-last-of-type(1) {
+  margin-bottom: 48px;
+}
+.content h2 {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.sec00 h2 {
+  text-align: center;
+}
+
+/* 要素二つを横並びにする */
+.sec01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content div {
+  width: 50%;
+  /* background-color: orange; */
+  margin-right: 36px;
+}
+.content p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 1.8em;
+}
+.sec01 figure {
+  width: 50%;
+  background-color: burlywood;
+}
+.sec01 figure img {
+  width: 100%;
+  height: auto;
+  /* 画像と親要素の小さな空白をbottomまたはtopで埋める*/
+  vertical-align: top;
+  box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.2);
+}
+
+.sec00 h2,
+.sec01 h2 {
+  margin-bottom: 12px;
+}
+
+.sec02 h2 {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.sec02 .photo_list {
+  /* 直接ul li 出なくても親から受け継がれる */
+  list-style: none;
+  /* 幅によって縦横並びをするようにdisplay flexを使う */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.sec02 .photo_list li {
+  margin-bottom: 22px;
+}
+.sec02 .photo_list li a {
+  transition: 0.5s;
+}
+.sec02 .photo_list li a:hover {
+  /* 不透明度50% */
+  opacity: 0.5;
+}
+.sec02 .photo_list img {
+  width: 240px;
+  vertical-align: bottom;
+  /* box-shadow: x軸 y軸 ぼかし 色(透過); */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact {
+  /* background-color: red; */
+  color: #333;
+  font-weight: bold;
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 24px auto;
+  /* 高さを入れるのではなくてpaddingとfontサイズを考慮したやり方で高さを作る */
+  padding: 12px 24px;
+  border: solid 3px #333;
+  border-radius: 4px;
+  text-decoration: none;
+
+  transition: opacity 0.4s;
+}
+.contact:hover {
+  opacity: 0.7;
+}
+footer {
+  background: black;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 6px 0;
+}
+.topBtn {
+  display: block;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+  transform: rotate(45deg);
+
+  border: double 6px #222;
+  border-radius: 2px 8px;
+
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+}
+.topBtn span {
+  display: block;
+  transform: rotate(-45deg);
+}
+
+/*==================================
+SP 768px以下の設定
+==================================*/
+@media screen and (max-width: 768px) {
+  header {
+    background-position: 26%;
+    margin-bottom: 24px;
+  }
+
+  article {
+    padding: 12px;
+  }
+  .sec01 {
+    display: block;
+  }
+  .content h2 {
+    font-size: 24px;
+  }
+  .content p {
+    font-size: 12px;
+  }
+  .sec00,
+  .sec01 {
+    margin-bottom: 48px;
+  }
+  .sec01 div {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .sec01 figure {
+    width: 100%;
+  }
+  .sec00 h2,
+  .sec02 h2 {
+    margin: 0 0 12px;
+    text-align: left;
+  }
+  .sec02 .photo_list li {
+    /* liが画面の半分以下のサイズで空白がdisplayflexのせいでできているため50%にして半々にして間を埋める */
+    width: 50%;
+    /* background-color: red; */
+    box-sizing: border-box;
+    padding: 4px 6px;
+    margin-bottom: 0px;
+  }
+  .sec02 .photo_list img {
+    width: 100%;
+  }
+}
+/*  768px end */
